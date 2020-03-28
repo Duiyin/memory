@@ -3,7 +3,7 @@ Implementation-Title: memory
 Implementation-Version: latest
 Built-By: Tinghan
 Implementation-Vendor-Id: com.dy
-Build-Jdk: 1.8.0_231
+Build-Jdk: 1.8.0_241
 Implementation-URL: http://projects.spring.io/spring-boot/memory/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
