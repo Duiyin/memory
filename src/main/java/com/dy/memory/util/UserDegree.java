@@ -9,7 +9,7 @@ package com.dy.memory.util;
 public enum UserDegree {
 	
 	/**
-	 * SUPERADMIN 超级管理
+	 * SUPERADMIN 超级管理 - 唯一
 	 * PRESIDENT 次级管理
 	 * MEMBER 普通用戶
 	 */

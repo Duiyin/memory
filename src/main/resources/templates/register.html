@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/login_style.css">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/login_style.css">
 </head>
 <body class="my-login-page">
 	<section class="h-100">
@@ -15,40 +15,27 @@
 						<div class="card-body">
 							<h4 class="card-title">Register</h4>
 							<form method="POST">
-							 
+
 								<div class="form-group">
-									<label for="name">User Name</label>
-									<input id="name" type="text" class="form-control" name="name" required autofocus>
+									<label for="email">E-Mail Address</label> <input id="email" type="email" placeholder="请输入您的邮箱" class="form-control" name="account" tabindex="1" required>
+									
 								</div>
 
 								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" required>
+									<label for="password">Password</label> <input id="password" type="password" placeholder="请输入6-16位密码" class="form-control" name="password" tabindex="2" required>
 								</div>
 
-								<div class="form-group">
-									<label for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password">
-								</div>
-								
 								<div class="form-group">
 									<label for="password">Verification Code</label>
-										<div class="flexbox">
-										<input id="Code" type="text" class="form-control form-controll" name="Code">
-										<button >获取验证码</button>
-										</div>
-								</div>
-
-								<div class="form-group">
-									<label>
-										<input type="checkbox" name="aggree" value="1"> I agree to the Terms and Conditions
-									</label>
+									<div class="flexbox">
+										<input id="vcode" type="text" placeholder="请输入验证码" class="form-control form-controll" name="vcode" tabindex="4" required>
+										<button tabindex="3">获取验证码</button>
+									</div>
 								</div>
 
 								<div class="form-group no-margin">
 									<button type="submit" class="btn btn-primary btn-block">
-										Register
-									</button>
+										Register</button>
 								</div>
 								<div class="margin-top20 text-center">
 									Already have an account? <a href="login.html">Login</a>
