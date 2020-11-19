@@ -1,5 +1,7 @@
 package com.dy.memory.dao;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Property;
@@ -11,16 +13,22 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserDao<T> extends BaseDao<T>{
 	
-	/**
-	 * 查询是否有相同记录
-	 * 
-	 */
-	public Integer getById(T t, String str){
+	@Override
+	public List<?> retrieve(T t, String str) {
 		DetachedCriteria dc = DetachedCriteria.forClass(t.getClass());
 		Disjunction dis = Restrictions.disjunction();
 		dis.add(Property.forName("id").eq(str));
 		dis.add(Property.forName("account").eq(str));
 		dc.add(dis);
-		return findAllByCriteria(dc).size();
+		List<?> list = findAllByCriteria(dc);
+		return list;
+	}
+	
+	/**
+	 * 查询是否有相同账号
+	 * 
+	 */
+	public Integer getAccountCount(T t, String str){
+		return retrieve(t, str).size();
 	}
 }

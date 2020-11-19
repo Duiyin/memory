@@ -11,7 +11,7 @@ import com.dy.memory.dao.UserDao;
 import com.dy.memory.entity.User;
 import com.dy.memory.entity.UserDto;
 import com.dy.memory.util.MailUtil;
-import com.dy.memory.util.Result;
+import com.dy.memory.util.ServiceException;
 
 @Component
 @Transactional
@@ -21,21 +21,18 @@ public class RegisterService {
 	private UserDao<User> userDao;
 
 	public User register(HttpSession session, UserDto userDto) {
-		try {
-			User user = new User();
-			if (0 != userDao.getById(user, userDto.getAccount())) {
-				return (User) Result.failed();
-			} else {
-				if (MailUtil.isEmail(userDto.getAccount())) {
-					user.setAccount(userDto.getAccount());
-				}
-				user.setPassword(userDto.getPassword());
-				BeanUtils.copyProperties(userDto, user, User.class);
-				userDao.save(user);
+
+		User user = new User();
+		if (0 != userDao.getAccountCount(user, userDto.getAccount())) {
+			throw new ServiceException("register", "account_registered");
+		} else {
+			if (MailUtil.isEmail(userDto.getAccount())) {
+				user.setAccount(userDto.getAccount());
 			}
-			return user;
-		} catch (Exception e) {
-			throw e;
+			user.setPassword(userDto.getPassword());
+			BeanUtils.copyProperties(userDto, user, User.class);
+			userDao.save(user);
 		}
+		return user;
 	}
 }

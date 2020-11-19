@@ -15,29 +15,33 @@
 						<div class="card-body">
 							<div style="float:right;margin-right:20px;"><a th:href="@{/}">返回首页</a></div>
 							<h4 class="card-title">Login</h4>
-							<form method="POST">
+							<form th:action="@{/login}" method="post">
+							
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
-
-									<input id="email" type="email" class="form-control" name="account" value="" required autofocus>
+									<input id="email" type="email" class="form-control" name="account" tabindex="1" required autofocus>
 								</div>
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="forgot.html" class="float-right">
-											Forgot Password?
-										</a>
+										<a href="forgot.html" class="float-right">Forgot Password?</a>
 									</label>
-									<input id="password" type="password" class="form-control" name="password">
+									<input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="password">Verification Code</label>
+									<div class="flexbox">
+										<input name="vcode" type="text" placeholder="请输入验证码" class="form-control form-controll" tabindex="3" required>
+										<img src="../static/img/vericode.jpg" th:src="@{/vcode.jpg}" />
+									</div>
 								</div>
 
 								<div class="form-group no-margin">
-									<button type="submit" class="btn btn-primary btn-block">
-										Login
-									</button>
+									<button type="submit" class="btn btn-primary btn-block" tabindex="4">Login</button>
 								</div>
-								<div class="margin-top20 text-center">
-									Don't have an account? <a href="register.html">Create One</a>
+								
+								<div class="margin-top20 text-center">Don't have an account? <a href="register.html">Create One</a>
 								</div>
 							</form>
 						</div>

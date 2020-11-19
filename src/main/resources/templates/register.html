@@ -18,18 +18,18 @@
 							<form method="POST" th:action="@{/register}">
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
-									<input id="email" name="account" type="email" placeholder="请输入您的邮箱" class="form-control" tabindex="1" required="required">
+									<input id="email" name="account" type="email" placeholder="请输入您的邮箱" class="form-control" tabindex="1" required autofocus>
 								</div>
 
 								<div class="form-group">
 									<label for="password">Password</label> 
-									<input id="password" type="password" placeholder="请输入6-16位密码" class="form-control" name="password" tabindex="2" required="required">
+									<input id="password" type="password" placeholder="请输入6-16位密码" class="form-control" name="password" tabindex="2" required>
 								</div>
 
 								<div class="form-group">
 									<label for="password">Verification Code</label>
 									<div class="flexbox">
-										<input name="vcode" type="text" placeholder="请输入验证码" class="form-control form-controll" tabindex="4" required="required">
+										<input name="vcode" type="text" placeholder="请输入验证码" class="form-control form-controll" tabindex="4" required>
 										<button type="button" id="getVerifyBtn" tabindex="3">获取验证码</button>
 									</div>
 								</div>
