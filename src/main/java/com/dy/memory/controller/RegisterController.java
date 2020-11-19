@@ -21,7 +21,7 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String register(HttpSession session, @Valid UserDto userDto, BindingResult result) {
 		
-		/*String verifyCode = (String) session.getAttribute("vcode");
+		String verifyCode = (String) session.getAttribute("vcode");
 		if(!userDto.getVcode().equals(verifyCode)){
 			result.rejectValue("vcode","user.verifycode.error","激活码错误");
 			return "register";
@@ -29,12 +29,13 @@ public class RegisterController {
 		
 		if (result.hasErrors()) {
 			return "register";
-		}*/
+		}
 		
 		try{
 			registerService.register(session, userDto);
 		}catch(ServiceException e){
 			result.reject(e.getMessage());
+			System.err.println("aaaa");
 			return "register";
 		}
 		return "success";

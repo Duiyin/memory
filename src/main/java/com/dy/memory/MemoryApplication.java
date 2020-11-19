@@ -9,5 +9,4 @@ public class MemoryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MemoryApplication.class, args);
 	}
-
 }

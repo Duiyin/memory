@@ -32,6 +32,14 @@ public class User {
 		this.role = UserDegree.MEMBER;
 		this.ctime = Time.timestamp();
 	}
+	
+	//初始化账户
+	public void init(){
+		this.setAccount("memory@memory.com");
+		this.setPassword("memory123456");
+		this.setUsername("memory");
+		this.setRole(UserDegree.SUPERADMIN);
+	}
 
 	public String getId() {
 		return id;

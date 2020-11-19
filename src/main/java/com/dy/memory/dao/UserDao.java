@@ -11,11 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserDao<T> extends BaseDao<T>{
 	
-	public Integer getById(T t, String account){
+	/**
+	 * 查询是否有相同记录
+	 * 
+	 */
+	public Integer getById(T t, String str){
 		DetachedCriteria dc = DetachedCriteria.forClass(t.getClass());
 		Disjunction dis = Restrictions.disjunction();
-		dis.add(Property.forName("id").eq(account));
-		dis.add(Property.forName("account").eq(account));
+		dis.add(Property.forName("id").eq(str));
+		dis.add(Property.forName("account").eq(str));
 		dc.add(dis);
 		return findAllByCriteria(dc).size();
 	}
