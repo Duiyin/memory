@@ -15,7 +15,7 @@ public class UserDto {
 	@Size(min = 6, max = 16, message = "密码长度有误,请输入6-16位密码")
 	private String password;
 	
-	@Size(min = 5, max = 6, message = "验证码长度有误，请输入6位验证码")
+	@Size(min = 5, max = 5, message = "验证码长度有误，请输入5位验证码")
 	private String vcode;
 
 	public String getAccount() {

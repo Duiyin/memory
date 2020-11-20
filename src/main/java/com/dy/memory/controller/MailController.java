@@ -26,7 +26,7 @@ public class MailController {
 		if (!MailUtil.isEmail(email)) {
 			return "邮箱格式有误";
 		}
-		String vcode = MailUtil.getSixRandom();
+		String vcode = MailUtil.getRandom();
 		session.setAttribute("vcode", vcode);
 		String fromName = "Memory";
 		String subject = "激活码邮件";

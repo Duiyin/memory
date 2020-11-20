@@ -50,7 +50,7 @@ public class LoginController extends KaptchaExtend {
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("userid");
+		session.removeAttribute("user");
 		return "redirect:/";
 	}
 

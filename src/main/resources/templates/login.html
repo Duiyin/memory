@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/login_style.css">
@@ -16,7 +17,6 @@
 							<div style="float:right;margin-right:20px;"><a th:href="@{/}">返回首页</a></div>
 							<h4 class="card-title">Login</h4>
 							<form th:action="@{/login}" method="post">
-							
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
 									<input id="email" type="email" class="form-control" name="account" tabindex="1" required autofocus>

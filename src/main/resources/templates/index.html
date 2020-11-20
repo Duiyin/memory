@@ -4,6 +4,7 @@
 </head>
 <body>
 hello world!
-<div>[[${session.user.id}]]</div>
+<div th:if="${session?.user} != null">[[${session.user.id}]]</div>
+
 </body>
 </html>

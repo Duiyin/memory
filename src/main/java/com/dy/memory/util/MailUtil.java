@@ -24,14 +24,14 @@ public class MailUtil {
 	 * 
 	 * @return
 	 */
-	public static String getSixRandom() {
+	public static String getRandom() {
 		Random random = new Random();
-		String fourRandom = random.nextInt(10000) + "";
-		int randLength = fourRandom.length();
-		if (randLength < 6) {
-			for (int i = 1; i <= 6 - randLength; i++)
-				fourRandom = "0" + fourRandom;
+		String fiveRandom = random.nextInt(10000) + "";
+		int randLength = fiveRandom.length();
+		if (randLength < 5) {
+			for (int i = 1; i <= 5 - randLength; i++)
+				fiveRandom = "0" + fiveRandom;
 		}
-		return fourRandom;
+		return fiveRandom;
 	}
 }
