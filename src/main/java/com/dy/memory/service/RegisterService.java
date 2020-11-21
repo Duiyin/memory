@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dy.memory.dao.UserDao;
 import com.dy.memory.entity.User;
 import com.dy.memory.entity.UserDto;
+import com.dy.memory.util.ID;
 import com.dy.memory.util.MailUtil;
 import com.dy.memory.util.ServiceException;
 
@@ -30,6 +31,7 @@ public class RegisterService {
 				user.setAccount(userDto.getAccount());
 			}
 			user.setPassword(userDto.getPassword());
+			user.setUsername(ID.initName(userDto.getAccount()));
 			BeanUtils.copyProperties(userDto, user, User.class);
 			userDao.save(user);
 		}

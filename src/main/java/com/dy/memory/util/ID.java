@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 public class ID {
 
-	public static String uuid() {
+	public static String UUID() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 
@@ -18,6 +18,15 @@ public class ID {
 	 * @return
 	 */
 	public static String Intercept() {
-		return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10);
+		return UUID().substring(0, 10);
+	}
+	
+	/**
+	 * 设置初始名
+	 * @param name
+	 * @return
+	 */
+	public static String initName(String name){
+		return name.toString().substring(0, name.indexOf("@"));
 	}
 }

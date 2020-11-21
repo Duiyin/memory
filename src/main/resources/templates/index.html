@@ -1,10 +1,61 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>memory</title>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}"/>
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/> -->
 </head>
 <body>
-hello world!
-<div th:if="${session?.user} != null">[[${session.user.id}]]</div>
+	<div class="topbar-wrap white">
+	    <div class="topbar-inner clearfix">
+	        <div class="topbar-logo-wrap clearfix">
+	            <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
+	            <ul class="navbar-list clearfix">
+	                <li><a class="on" href="">Memory</a></li>
+	            </ul>
+	        </div>
+	        <div class="top-info-wrap dropdown">
+	            <ul class="top-info-list clearfix">
+	                <li>用户名：<div th:if="${session?.user} != null">[[${session.user.username}]]</div></li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	<div class="container clearfix">
+		<div class="sidebar-wrap">
+			<div class="sidebar-content">
+				<ul class="sidebar-list">
+					<li>
+						<ul class="sub-menu">
+							<li><a href="design.html"><i class="icon-font">X</i>日记管理</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--/sidebar-->
+		<div class="main-wrap">
+			<div class="search-wrap">
+				<div class="search-content">
+					<form action="#" method="post">
+						<table class="search-tab">
+							<tr>
+								<th width="70">关键字:</th>
+								<td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+								<td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
 
+			<div th:replace="index_list"></div>
+			
+			<div class="list-page">2 条 1/1 页</div>
+		</div>
+		<!--/main-->
+	</div>
 </body>
+<!-- <script th:src="@{/js/bootstrap.min.js}"></script> -->
 </html>

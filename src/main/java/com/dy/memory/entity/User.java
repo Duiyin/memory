@@ -27,7 +27,7 @@ public class User {
 	private Timestamp ctime;	//创建时间
 	
 	public User(){
-		this.id = ID.uuid();
+		this.id = ID.UUID();
 		this.username = ID.Intercept();
 		this.role = UserDegree.MEMBER;
 		this.ctime = Time.timestamp();

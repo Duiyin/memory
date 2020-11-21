@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/login_style.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" href="/css/login_style.css" th:href="@{/css/memory_login_register.css}">
 </head>
 <body class="my-login-page">
 	<section class="h-100">
@@ -19,14 +19,14 @@
 							<form th:action="@{/login}" method="post">
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="account" tabindex="1" required autofocus>
+									<input id="email" type="email" placeholder="请输入账号" class="form-control" name="account" tabindex="1" required autofocus>
 								</div>
 
 								<div class="form-group">
 									<label for="password">Password
 										<a href="forgot.html" class="float-right">Forgot Password?</a>
 									</label>
-									<input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+									<input id="password" type="password" placeholder="请输入密码" class="form-control" name="password" tabindex="2" required>
 								</div>
 								
 								<div class="form-group">
