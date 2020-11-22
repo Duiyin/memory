@@ -18,7 +18,7 @@
 	        <div class="top-info-wrap dropdown">
 	            <ul class="top-info-list clearfix">
 	                <li>用户名：<div th:if="${session?.user} != null">[[${session.user.username}]]</div></li>
-	                <li><a href="/login.html" th:href="@{/login}">登录</a></li>
+	                <li><a href="/login.html" th:href="@{/logout}">登出</a></li>
 	            </ul>
 	        </div>
 	    </div>

@@ -1,9 +1,14 @@
 package com.dy.memory.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.dy.memory.util.ID;
 import com.dy.memory.util.PasswordUtil;
@@ -25,6 +30,10 @@ public class User {
 	private UserDegree role;	//用户权限
 	
 	private Timestamp ctime;	//创建时间
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY, orphanRemoval = true)
+	@OrderBy("ctime")
+	private List<Diary> diary;
 	
 	public User(){
 		this.id = ID.UUID();
@@ -87,5 +96,13 @@ public class User {
 
 	public void setCtime(Timestamp ctime) {
 		this.ctime = ctime;
+	}
+
+	public List<Diary> getDiary() {
+		return diary;
+	}
+
+	public void setDiary(List<Diary> diary) {
+		this.diary = diary;
 	}
 }

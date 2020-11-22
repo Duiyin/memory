@@ -8,7 +8,11 @@ import javax.persistence.PersistenceContext;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+@Component
+@Transactional
 public class BaseDao<T> {
 
 	@PersistenceContext
@@ -54,8 +58,8 @@ public class BaseDao<T> {
 	 * @param id
 	 * @return obj
 	 */
-	public Object retrieve(T t, String str) {
-		Object obj = (Object) getSession().get(t.getClass(), str);
+	public Object retrieve(T t, String id) {
+		Object obj = (Object) getSession().get(t.getClass(), id);
 		return obj;
 	}
 

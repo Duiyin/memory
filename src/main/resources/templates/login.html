@@ -14,7 +14,6 @@
 				<div class="card-wrapper">
 					<div class="card fat">
 						<div class="card-body">
-							<div style="float:right;margin-right:20px;"><a th:href="@{/}">返回首页</a></div>
 							<h4 class="card-title">Login</h4>
 							<form th:action="@{/login}" method="post">
 								<div class="form-group">
@@ -24,7 +23,7 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="forgot.html" class="float-right">Forgot Password?</a>
+										<a href="forgot.html" th:href="@{/forgot}" class="float-right">Forgot Password?</a>
 									</label>
 									<input id="password" type="password" placeholder="请输入密码" class="form-control" name="password" tabindex="2" required>
 								</div>
@@ -41,7 +40,7 @@
 									<button type="submit" class="btn btn-primary btn-block" tabindex="4">Login</button>
 								</div>
 								
-								<div class="margin-top20 text-center">Don't have an account? <a href="register.html">Create One</a>
+								<div class="margin-top20 text-center">Don't have an account? <a href="register.html" th:href="@{/register}">Create One</a>
 								</div>
 							</form>
 						</div>
