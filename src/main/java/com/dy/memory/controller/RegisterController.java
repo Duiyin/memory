@@ -39,4 +39,33 @@ public class RegisterController {
 		}
 		return "success";
 	}
+	
+	/**
+	 * 密码重置
+	 * @param session
+	 * @param userDto
+	 * @param result
+	 * @return
+	 */
+	@PostMapping("/passwordReset")
+	public String passwordReset(HttpSession session, @Valid UserDto userDto, BindingResult result) {
+
+		String verifyCode = (String) session.getAttribute("vcode");
+		if (!userDto.getVcode().equals(verifyCode)) {
+			result.rejectValue("vcode", "user.verifycode.error", "激活码错误");
+			return "forgot";
+		}
+
+		if (result.hasErrors()) {
+			return "forgot";
+		}
+
+		try {
+			registerService.passwordReset(session, userDto);
+		} catch (ServiceException e) {
+			result.rejectValue("unregistered", e.getMessage(), "账号不存在");
+			return "register";
+		}
+		return "success";
+	}
 }

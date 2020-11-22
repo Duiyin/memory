@@ -3,33 +3,27 @@
 <head>
 <meta charset="utf-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}"/>
+<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}" />
 </head>
 <body>
-	<div class="result-wrap">
-		<form name="myform" id="myform" method="post">
-			<div>
-				<table class="result-tab">
-					<tr>
-						<th>ID</th>
-						<th>标题</th>
-						<th>更新时间</th>
-						<th>操作</th>
-					</tr>
-					<tr>
-						<td>59</td>
-						<td>sss</td>
-						<td>2014-03-15 21:11:01</td>
-						<td>
-							<a href="#">修改</a>
-							<a class="link-del" href="#">删除</a> 
-							<!-- <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a> -->
-						</td>
-					</tr>
-				</table>
-			</div>
-		</form>
-	</div>
+	<form name="myform" id="myform" method="post">
+		<div>
+			<table class="result-tab">
+				<tr>
+					<th>ID</th>
+					<th>标题</th>
+					<th>更新时间</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td>59</td>
+					<td>今天是个好日子</td>
+					<td>2014-03-15 21:11:01</td>
+					<td><a href="#">修改</a> <a class="link-del" href="#">删除</a></td>
+				</tr>
+			</table>
+		</div>
+	</form>
 </body>
 <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
 </html>

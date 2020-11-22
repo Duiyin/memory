@@ -25,4 +25,9 @@ public class IndexController {
 	public String forgot() {
 		return "forgot";
 	}
+	
+	@GetMapping("/addInfo")
+	public String addInfo() {
+		return "index_add";
+	}
 }

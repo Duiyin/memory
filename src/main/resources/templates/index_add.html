@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}" />
+</head>
+<body>
+	<div class="result-wrap">
+		<div class="result-content">
+			<form action="/jscss/admin/design/add" method="post" id="myform" name="myform" enctype="multipart/form-data">
+				<table class="insert-tab" width="100%">
+					<tbody>
+						<tr>
+							<th><i class="require-red">*</i>标题：</th>
+							<td><input class="common-text required" id="title" name="title" size="50" value="" type="text"></td>
+						</tr>
+						<tr>
+							<th>内容：</th>
+							<td><textarea name="content" class="common-textarea" id="content" cols="30" style="width: 98%;" rows="10"></textarea></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td>
+								<input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+								<a th:href="@{/}"> 
+									<input class="btn btn6" value="取消" type="button">
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</html>

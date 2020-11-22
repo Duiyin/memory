@@ -50,8 +50,15 @@
 					</form>
 				</div>
 			</div>
-
-			<div th:replace="index_list"></div>
+			
+			<div class="result-wrap">
+				<div class="result-title">
+					<div class="result-list">
+						<a href="/addInfo" th:href="@{/addInfo}">新增</a>
+					</div>
+				</div>
+				<div th:replace="index_list"></div>
+			</div>
 			
 			<div class="list-page">2 条 1/1 页</div>
 		</div>
@@ -60,4 +67,5 @@
 </body>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/js/memory.js}"></script>
 </html>
