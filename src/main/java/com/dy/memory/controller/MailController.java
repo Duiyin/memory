@@ -29,9 +29,9 @@ public class MailController {
 		String vcode = MailUtil.getRandom();
 		session.setAttribute("vcode", vcode);
 		String fromName = "Memory";
-		String subject = "激活码邮件";
-		String htmlbody = "感谢您的使用，激活码：" + vcode;
+		String subject = "Memory验证码";
+		String htmlbody = "感谢您的使用，验证码：" + vcode;
 		mailService.send(email, email, fromName, subject, htmlbody);
-		return "激活码发送成功";
+		return "验证码发送成功";
 	}
 }

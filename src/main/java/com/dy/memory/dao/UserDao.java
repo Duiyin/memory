@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserDao<T> extends BaseDao<T>{
 	
+	/**
+	 * 根据条件查相应数据
+	 */
 	@Override
 	public List<?> retrieve(T t, String str) {
 		DetachedCriteria dc = DetachedCriteria.forClass(t.getClass());
