@@ -21,12 +21,12 @@ import com.dy.memory.util.ServiceException;
 public class RegisterService {
 
 	@Autowired
-	private UserDao<User> userDao;
+	private UserDao userDao;
 
 	public User register(HttpSession session, UserDto userDto) {
 
 		User user = new User();
-		if (0 != userDao.getAccountCount(user, userDto.getAccount())) {
+		if (0 != userDao.getUserTotal(userDto.getAccount())) {
 			throw new ServiceException("register", "account_registered");
 		} else {
 			if (MailUtil.isEmail(userDto.getAccount())) {
@@ -39,11 +39,11 @@ public class RegisterService {
 		}
 		return user;
 	}
-	
-	public User passwordReset(HttpSession session, UserDto userDto) {
-		List<?> oldUserList = userDao.retrieve(new User(), userDto.getAccount());
+
+	public User resetPassword(HttpSession session, UserDto userDto) {
+		List<User> oldUserList = userDao.retrieve(userDto.getAccount());
 		if (1 == oldUserList.size()) {
-			User user = (User) oldUserList.get(0);
+			User user = oldUserList.get(0);
 			user.setPassword(userDto.getPassword());
 			userDao.update(user);
 			return user;

@@ -6,15 +6,15 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserDto {
-	
+
 	@NotEmpty(message = "邮箱不能为空")
 	@Email(message = "请正确书写Email格式")
 	private String account;
-	
+
 	@NotEmpty(message = "密码不能为空")
 	@Size(min = 6, max = 16, message = "密码长度有误,请输入6-16位密码")
 	private String password;
-	
+
 	@Size(min = 5, max = 5, message = "验证码长度有误，请输入5位验证码")
 	private String vcode;
 

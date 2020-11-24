@@ -15,10 +15,10 @@
 					<th>更新时间</th>
 					<th>操作</th>
 				</tr>
-				<tr>
-					<td>59</td>
-					<td>今天是个好日子</td>
-					<td>2014-03-15 21:11:01</td>
+				<tr th:each="diary,row: ${diarylist.items}">
+					<td th:text="${diary.id}">59</td>
+					<td th:text="${diary.title}">今天是个好日子</td>
+					<td th:text="${diary.ctime}">2014-03-15 21:11:01</td>
 					<td><a href="#">修改</a> <a class="link-del" href="#">删除</a></td>
 				</tr>
 			</table>

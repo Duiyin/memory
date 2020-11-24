@@ -27,7 +27,7 @@ public class MemoryApplication {
 		slr.setDefaultLocale(Locale.CHINA);
 		return slr;
 	}
-	
+
 	@Bean
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -44,11 +44,11 @@ public class MemoryApplication {
 	 * @return
 	 */
 	@Bean
-	public CommandLineRunner initialAdmin(@Autowired UserDao<User> userDao) {
+	public CommandLineRunner initialAdmin(@Autowired UserDao userDao) {
 		return args -> {
 			User user = new User();
 			user.init();
-			if (0 == userDao.getAccountCount(user, user.getAccount())) {
+			if (0 == userDao.getUserTotal(user.getAccount())) {
 				userDao.save(user);
 				System.err.println("初始账号成功创建");
 			} else {

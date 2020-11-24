@@ -18,13 +18,13 @@ import com.dy.memory.util.ServiceException;
 public class LoginService {
 
 	@Autowired
-	private UserDao<User> userDao;
+	private UserDao userDao;
 
 	public User login(HttpSession session, String account, String password, String vcode) {
 
-		List<?> list = userDao.retrieve(new User(), account);
+		List<User> list = userDao.retrieve(account);
 		if (null != list && list.size() == 1) {
-			User user = (User) list.get(0);
+			User user = list.get(0);
 			if (!PasswordUtil.authenticatePassword(user.getPassword(), password)) {
 				throw new ServiceException("login", "account_or_password_error");
 			}

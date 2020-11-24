@@ -21,9 +21,9 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String register(HttpSession session, @Valid UserDto userDto, BindingResult result) {
 
-		String verifyCode = (String) session.getAttribute("vcode");
+		String verifyCode = (String) session.getAttribute("verifyCode");
 		if (!userDto.getVcode().equals(verifyCode)) {
-			result.rejectValue("vcode", "user.verifycode.error", "激活码错误");
+			result.rejectValue("verifyCode", "user.verifycode.error", "激活码错误");
 			return "register";
 		}
 
@@ -39,29 +39,34 @@ public class RegisterController {
 		}
 		return "success";
 	}
-	
+
 	/**
 	 * 密码重置
+	 * 
 	 * @param session
 	 * @param userDto
 	 * @param result
 	 * @return
 	 */
-	@PostMapping("/passwordReset")
-	public String passwordReset(HttpSession session, @Valid UserDto userDto, BindingResult result) {
+	@PostMapping("/reset")
+	public String resetPassword(HttpSession session, @Valid UserDto userDto, BindingResult result) {
 
-		String verifyCode = (String) session.getAttribute("vcode");
+		String verifyCode = (String) session.getAttribute("verifyCode");
+		System.err.println(verifyCode + "aaaa");
+		System.err.println(userDto.getVcode() + "bbbb");
 		if (!userDto.getVcode().equals(verifyCode)) {
 			result.rejectValue("vcode", "user.verifycode.error", "激活码错误");
-			return "forgot";
+			return "reset_password";
 		}
 
 		if (result.hasErrors()) {
-			return "forgot";
+			return "reset_password";
 		}
 
 		try {
-			registerService.passwordReset(session, userDto);
+			System.err.println("ljjycf1");
+			registerService.resetPassword(session, userDto);
+			System.err.println("ljjycf2");
 		} catch (ServiceException e) {
 			result.rejectValue("unregistered", e.getMessage(), "账号不存在");
 			return "register";

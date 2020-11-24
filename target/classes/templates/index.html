@@ -3,25 +3,29 @@
 <head>
 <meta charset="utf-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}"/>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="/css/memory.css" th:href="@{/css/memory_index.css}" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 	<div class="topbar-wrap white">
-	    <div class="topbar-inner clearfix">
-	        <div class="topbar-logo-wrap clearfix">
-	            <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
-	            <ul class="navbar-list clearfix">
-	                <li><a class="on" href="">Memory</a></li>
-	            </ul>
-	        </div>
-	        <div class="top-info-wrap dropdown">
-	            <ul class="top-info-list clearfix">
-	                <li>用户名：<div th:if="${session?.user} != null">[[${session.user.username}]]</div></li>
-	                <li><a href="/login.html" th:href="@{/logout}">登出</a></li>
-	            </ul>
-	        </div>
-	    </div>
+		<div class="topbar-inner clearfix">
+			<div class="topbar-logo-wrap clearfix">
+				<h1 class="topbar-logo none">
+					<a href="index.html" class="navbar-brand">后台管理</a>
+				</h1>
+				<ul class="navbar-list clearfix">
+					<li><a class="on" href="">Memory</a></li>
+				</ul>
+			</div>
+			<div class="top-info-wrap dropdown">
+				<ul class="top-info-list clearfix">
+					<li>用户名：
+						<div>[[${session.user.username}]]</div>
+					</li>
+					<li><a href="/login.html" th:href="@{/logout}">登出</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class="container clearfix">
 		<div class="sidebar-wrap">
@@ -29,7 +33,7 @@
 				<ul class="sidebar-list">
 					<li>
 						<ul class="sub-menu">
-							<li><a href="design.html"><i class="icon-font">X</i>日记管理</a></li>
+							<li><a href=""><i class="icon-font">X</i>日记管理</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -39,7 +43,7 @@
 		<div class="main-wrap">
 			<div class="search-wrap">
 				<div class="search-content">
-					<form action="#" method="post">
+					<form th:action="@{/ff}" method="post">
 						<table class="search-tab">
 							<tr>
 								<th width="70">关键字:</th>
@@ -50,17 +54,37 @@
 					</form>
 				</div>
 			</div>
-			
+
 			<div class="result-wrap">
 				<div class="result-title">
 					<div class="result-list">
-						<a href="/addInfo" th:href="@{/addInfo}">新增</a>
+						<a href="/diary/add" th:href="@{/diary/add}">新增</a>
 					</div>
 				</div>
-				<div th:replace="index_list"></div>
+				<div th:replace="index_diary_list"></div>
 			</div>
 			
-			<div class="list-page">2 条 1/1 页</div>
+			<div>
+				<nav aria-label="Page navigation">
+					<ul class="pagination pagination-lg">
+						<li th:class="${diarylist?.getPage() le 1} ? am-disabled">
+							<a th:href="|?page=${diarylist?.getPre()}|" href="?page=1" aria-label="Previous"> 
+							<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						
+						<li th:each="page:${diarylist?.getPages()}" th:class="${diarylist?.getPage() == page} ? am-active">
+							<a th:href="|?page=${page}|" href="?page=1">[[${page}]]</a>
+						</li>
+						
+						<li th:class="${diarylist?.getPage() ge diarylist?.getPagecount()} ? am-disabled" >
+							<a th:href="|?page=${diarylist?.getNext()}|" href="?page=2" aria-label="Next"> 
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</div>
 		<!--/main-->
 	</div>

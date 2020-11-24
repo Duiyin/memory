@@ -26,11 +26,11 @@ public class MailController {
 		if (!MailUtil.isEmail(email)) {
 			return "邮箱格式有误";
 		}
-		String vcode = MailUtil.getRandom();
-		session.setAttribute("vcode", vcode);
+		String verifyCode = MailUtil.getRandom();
+		session.setAttribute("verifyCode", verifyCode);
 		String fromName = "Memory";
 		String subject = "Memory验证码";
-		String htmlbody = "感谢您的使用，验证码：" + vcode;
+		String htmlbody = "感谢您的使用，验证码：" + verifyCode;
 		mailService.send(email, email, fromName, subject, htmlbody);
 		return "验证码发送成功";
 	}

@@ -23,7 +23,7 @@
 
 								<div class="form-group">
 									<label for="password">Password
-										<a href="forgot.html" th:href="@{/forgot}" class="float-right">Forgot Password?</a>
+										<a href="forgot.html" th:href="@{/reset}" class="float-right">Forgot Password?</a>
 									</label>
 									<input id="password" type="password" placeholder="请输入密码" class="form-control" name="password" tabindex="2" required>
 								</div>
@@ -31,8 +31,8 @@
 								<div class="form-group">
 									<label for="password">Verification Code</label>
 									<div class="flexbox">
-										<input name="vcode" type="text" placeholder="请输入验证码" class="form-control form-controll" tabindex="3" required>
-										<img src="../static/img/vericode.jpg" th:src="@{/vcode.jpg}" />
+										<input name="verifyCode" type="text" placeholder="请输入验证码" class="form-control form-controll" tabindex="3" required>
+										<img src="../static/img/vericode.jpg" th:src="@{/verifycode}" />
 									</div>
 								</div>
 

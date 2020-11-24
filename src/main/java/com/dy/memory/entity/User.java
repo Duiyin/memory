@@ -17,33 +17,33 @@ import com.dy.memory.util.UserDegree;
 
 @Entity
 public class User {
-	
+
 	@Id
 	private String id;
-	
-	private String account;		//邮箱作账号
-	
-	private String password;	//用户密码
-	
-	private String username;	//用户昵称
-	
-	private UserDegree role;	//用户权限
-	
-	private Timestamp ctime;	//创建时间
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY, orphanRemoval = true)
+
+	private String account;  // 邮箱作账号
+
+	private String password; // 用户密码
+
+	private String username; // 用户昵称
+
+	private UserDegree role; // 用户权限
+
+	private Timestamp ctime; // 创建时间
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@OrderBy("ctime")
 	private List<Diary> diary;
-	
-	public User(){
+
+	public User() {
 		this.id = ID.UUID();
 		this.username = ID.Intercept();
 		this.role = UserDegree.MEMBER;
 		this.ctime = Time.timestamp();
 	}
-	
-	//初始化账户
-	public void init(){
+
+	// 初始化账户
+	public void init() {
 		this.setAccount("memory@memory.com");
 		this.setPassword("memory123456");
 		this.setUsername("memory");

@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 
 /**
  * 工具类 密码校验及加密
+ * 
  * @author Tinghan
  *
  */
@@ -23,10 +24,8 @@ public class PasswordUtil {
 	/**
 	 * 验证输入的密码是否正确
 	 * 
-	 * @param password
-	 *            真正的密码（加密后的真密码）
-	 * @param inputString
-	 *            输入的字符串
+	 * @param password 真正的密码（加密后的真密码）
+	 * @param inputString 输入的字符串
 	 * @return 验证结果，boolean类型
 	 */
 	public static boolean authenticatePassword(String password, String inputString) {
@@ -60,8 +59,7 @@ public class PasswordUtil {
 	/**
 	 * 转换字节数组为十六进制字符串
 	 * 
-	 * @param b
-	 *            字节数组
+	 * @param b 字节数组
 	 * @return 十六进制字符串
 	 */
 	private static String byteArrayToHexString(byte[] b) {
@@ -82,16 +80,4 @@ public class PasswordUtil {
 		int d2 = n % 16;
 		return hexDigits[d1] + hexDigits[d2];
 	}
-
-	/*public static void main(String[] args) {
-		//96E79218965EB72C92A549DD5A330112
-		System.out.println(UUID.randomUUID().toString().replaceAll("-", ""));
-		String password = PasswordUtil.createPassword("111111");
-		System.out.println("对admin1用MD5摘要后的字符串：" + password);
-		String inputString = "g8uy6h9psx";
-		System.out.println("8888与密码匹配？" + PasswordUtil.authenticatePassword(password, inputString));
-		inputString = "888888";
-		System.out.println("888888与密码匹配？" + PasswordUtil.authenticatePassword(password, inputString));
-	}*/
-
 }

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 /**
  * 工具类 设置当前时间
+ * 
  * @author Tinghan
  *
  */
@@ -12,4 +13,3 @@ public class Time {
 		return new Timestamp(System.currentTimeMillis());
 	}
 }
-

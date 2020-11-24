@@ -23,7 +23,7 @@ public class GlobalConfiguration extends WebMvcConfigurerAdapter {
 		 */
 
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/login",
-				"/register", "/logout", "/vcode.jpg", "/forgot", "/email/verify");
+				"/register", "/logout", "/verifycode", "/reset", "/email/verify");
 
 		super.addInterceptors(registry);
 	}

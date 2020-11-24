@@ -12,20 +12,20 @@ import com.dy.memory.util.Time;
 
 @Entity
 public class Diary {
-	
+
 	@Id
 	private String id;
-	
+
 	private String title;
-	
+
 	private String content;
-	
+
 	private Timestamp ctime;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
-	
-	public Diary(){
+
+	public Diary() {
 		this.id = ID.UUID();
 		this.ctime = Time.timestamp();
 	}

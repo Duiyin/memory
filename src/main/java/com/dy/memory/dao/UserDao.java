@@ -9,29 +9,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dy.memory.entity.User;
+
 @Component
 @Transactional
-public class UserDao<T> extends BaseDao<T>{
-	
+public class UserDao extends BaseDao<User> {
+
 	/**
-	 * 根据条件查相应数据
+	 * 指定条件查用户
 	 */
 	@Override
-	public List<?> retrieve(T t, String str) {
-		DetachedCriteria dc = DetachedCriteria.forClass(t.getClass());
+	public List<User> retrieve(String str) {
+		DetachedCriteria dc = DetachedCriteria.forClass(User.class);
 		Disjunction dis = Restrictions.disjunction();
 		dis.add(Property.forName("id").eq(str));
 		dis.add(Property.forName("account").eq(str));
 		dc.add(dis);
-		List<?> list = findAllByCriteria(dc);
-		return list;
+		return findAllByCriteria(dc);
 	}
-	
+
 	/**
-	 * 查询是否有相同账号
+	 * 返回已查用户的数量
 	 * 
 	 */
-	public Integer getAccountCount(T t, String str){
-		return retrieve(t, str).size();
+	public Integer getUserTotal(String str) {
+		return retrieve(str).size();
 	}
 }

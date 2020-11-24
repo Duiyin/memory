@@ -28,9 +28,9 @@ public class LoginController extends KaptchaExtend {
 
 	@PostMapping("/login")
 	public String login(HttpSession session, @Valid UserDto userDto, HttpServletRequest request, BindingResult result) {
-		String vcode = request.getParameter("vcode");
-		if (!StringUtils.equals(vcode, getGeneratedKey(request))) {
-			result.rejectValue("vcode", "user.vcode.error", "验证码错误");
+		String verifyCode = request.getParameter("verifyCode");
+		if (!StringUtils.equals(verifyCode, getGeneratedKey(request))) {
+			result.rejectValue("verifyCode", "login.verifycode.error", "验证码错误");
 			return "login";
 		}
 
@@ -54,7 +54,7 @@ public class LoginController extends KaptchaExtend {
 		return "redirect:/";
 	}
 
-	@GetMapping("/vcode.jpg")
+	@GetMapping("/verifycode")
 	public void captcha(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.captcha(request, response);
 	}

@@ -40,7 +40,7 @@ public class GlobalAdvice {
 		return new HashMap<String, Object>() {
 			private static final long serialVersionUID = 2127035631102942291L;
 			{
-				put("result","error");
+				put("result", "error");
 				put("code", be.getCode());
 				put("message", message);
 			}
