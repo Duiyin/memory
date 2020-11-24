@@ -27,7 +27,7 @@ public class LoginController extends KaptchaExtend {
 	private LoginService loginService;
 
 	@PostMapping("/login")
-	public String login(HttpSession session, @Valid UserDto userDto, HttpServletRequest request, BindingResult result) {
+	public String login(HttpSession session, @Valid UserDto userDto, BindingResult result, HttpServletRequest request) {
 		String verifyCode = request.getParameter("verifyCode");
 		if (!StringUtils.equals(verifyCode, getGeneratedKey(request))) {
 			result.rejectValue("verifyCode", "login.verifycode.error", "验证码错误");
