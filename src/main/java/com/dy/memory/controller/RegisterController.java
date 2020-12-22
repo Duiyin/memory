@@ -52,8 +52,6 @@ public class RegisterController {
 	public String resetPassword(HttpSession session, @Valid UserDto userDto, BindingResult result) {
 
 		String verifyCode = (String) session.getAttribute("verifyCode");
-		System.err.println(verifyCode + "aaaa");
-		System.err.println(userDto.getVcode() + "bbbb");
 		if (!userDto.getVcode().equals(verifyCode)) {
 			result.rejectValue("vcode", "user.verifycode.error", "激活码错误");
 			return "reset_password";
@@ -64,9 +62,7 @@ public class RegisterController {
 		}
 
 		try {
-			System.err.println("ljjycf1");
 			registerService.resetPassword(session, userDto);
-			System.err.println("ljjycf2");
 		} catch (ServiceException e) {
 			result.rejectValue("unregistered", e.getMessage(), "账号不存在");
 			return "register";

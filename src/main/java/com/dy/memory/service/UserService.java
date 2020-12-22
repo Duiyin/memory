@@ -1,11 +1,8 @@
 package com.dy.memory.service;
 
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
-@Component
-@Transactional
+@Service
 public class UserService {
-	
-	
+
 }

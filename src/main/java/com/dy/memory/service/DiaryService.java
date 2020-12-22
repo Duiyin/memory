@@ -2,8 +2,7 @@ package com.dy.memory.service;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.dy.memory.dao.DiaryDao;
 import com.dy.memory.entity.Diary;
@@ -11,8 +10,7 @@ import com.dy.memory.entity.DiaryDto;
 import com.dy.memory.entity.User;
 import com.dy.memory.util.MyPage;
 
-@Component
-@Transactional
+@Service
 public class DiaryService {
 
 	@Autowired

@@ -6,8 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
 
 import com.dy.memory.dao.UserDao;
 import com.dy.memory.entity.User;
@@ -16,8 +15,7 @@ import com.dy.memory.util.ID;
 import com.dy.memory.util.MailUtil;
 import com.dy.memory.util.ServiceException;
 
-@Component
-@Transactional
+@Service
 public class RegisterService {
 
 	@Autowired
